@@ -1,48 +1,48 @@
 #!/bin/bash
 
-#apt-get update
-#apt-get install -y \
-#       python-dev \
+# apt-get update
+# apt-get install -y \
+# python-dev \
 #	python-pip \
 #	python-psutil \
 #	python-yaml \
-# 	openssl \
-#       autoconf \
+# openssl \
+# autoconf \
 #	zlib1g-dev \
-#       ccache \
+# ccache \
 #	cmake \
-#       curl \
+# curl \
 #	gcc \
-#       g++ \
+# g++ \
 #	libssl-dev \
-#       locales-all \
+# locales-all \
 #	inetutils-ping \
 #	cgroup-tools \
 #	bison \
 #	flex \
-#       libreadline-dev \
+# libreadline-dev \
 #	libzstd-dev \
-#       libkrb5-dev \
+# libkrb5-dev \
 #	python-gssapi \
-#       libevent-dev \
-# 	libapr1-dev \
-#       libtool \
-#       libyaml-dev \
-#       libperl-dev \
+# libevent-dev \
+# libapr1-dev \
+# libtool \
+# libyaml-dev \
+# libperl-dev \
 #	libbz2-dev \
 #	libcurl4-gnutls-dev \
 #	libpam-dev \
-#       wget \
+# wget \
 #	git-core \
 #	krb5-kdc \
 #	krb5-admin-server \
 #	locales \
 #	net-tools \
 #	ninja-build \
-#       libpq-dev
+# libpq-dev
   
 #pip install conan
-dpkg -i  ./greenplum-oss-debs/*.deb
+dpkg -i  /gpdb_src/greenplum-oss/greenplum-oss-debs/*.deb
 
 
 tee -a /etc/sysctl.conf << EOF
