@@ -43,6 +43,7 @@
   
 dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/multiarch-support_2.27-3ubuntu1.6_amd64.deb
 dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/perl-modules-5.26_5.26.1-6ubuntu0.7_all.deb
+dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/python2.7-minimal_2.7.17-1_18.04ubuntu1.11_amd64.deb
 dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/python-minimal_2.7.15_rc1-1_amd64.deb
 dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/*.deb
 
