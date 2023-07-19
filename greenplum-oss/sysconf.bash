@@ -41,11 +41,11 @@
 #	ninja-build \
 # libpq-dev
   
-pip install conan
 dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/multiarch-support_2.27-3ubuntu1.6_amd64.deb
 dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/perl-modules-5.26_5.26.1-6ubuntu0.7_all.deb
 dpkg -i  /gpdb_src/greenplum-oss/greenplum-oss-debs/*.deb
 
+pip install conan
 
 tee -a /etc/sysctl.conf << EOF
 kernel.shmmax = 5000000000000
