@@ -41,7 +41,8 @@
 #	ninja-build \
 # libpq-dev
   
-#pip install conan
+pip install conan
+dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/multiarch-support_2.27-3ubuntu1.6_amd64.deb
 dpkg -i  /gpdb_src/greenplum-oss/greenplum-oss-debs/*.deb
 
 
