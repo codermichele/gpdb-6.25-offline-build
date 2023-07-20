@@ -56,6 +56,9 @@ EOF
 #install equvis
 for deb in `cat ${sub_path}/equivs_apt_install_order.txt`;do
   deb=${deb#*_}	
+  if [ ${deb} == "dh-autoreconf_17_all.deb" ];then
+    dpkg -i --ignore-depends=debhelper ${sub_path}/greenplum-oss-debs/${deb}
+  fi
   dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
 done
 
