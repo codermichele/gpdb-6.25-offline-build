@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get update
+# apt-get update
 # apt-get install -y \
 # python-dev \
 # python-pip \
@@ -40,7 +40,7 @@ apt-get update
 # net-tools \
 # ninja-build \
 # libpq-dev
-apt-get -y install equivs
+# apt-get -y install equivs
 sub_path="/gpdb_src/greenplum-oss"
 tee -a > ${sub_path}/greenplum-oss-debs/libverto1.control <<EOF
     Section: libs
