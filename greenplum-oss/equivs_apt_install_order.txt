@@ -97,9 +97,9 @@
 97_libtool_2.4.6-2_all.deb
 98_dh-autoreconf_17_all.deb
 99_libarchive-zip-perl_1.60-1ubuntu0.1_all.deb
-100_libfile-stripnondeterminism-perl_0.040-1.1~build1_all.deb
+100_libfile-stripnondeterminism-perl_0.040-1.1_build1_all.deb
 101_libtimedate-perl_2.3000-2_all.deb
-102_dh-strip-nondeterminism_0.040-1.1~build1_all.deb
+102_dh-strip-nondeterminism_0.040-1.1_build1_all.deb
 103_libcroco3_0.6.12-2_amd64.deb
 104_gettext_0.19.8.1-6ubuntu0.3_amd64.deb
 105_intltool-debian_0.35.0+20060710.4_all.deb
