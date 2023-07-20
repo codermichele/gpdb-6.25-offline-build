@@ -58,6 +58,7 @@ for deb in `cat ${sub_path}/equivs_apt_install_order.txt`;do
   deb=${deb#*_}	
   if [ ${deb} == "dh-autoreconf_17_all.deb" ];then
     dpkg -i --ignore-depends=debhelper ${sub_path}/greenplum-oss-debs/${deb}
+    continue
   fi
   dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
 done
@@ -70,6 +71,7 @@ for deb in `cat ${sub_path}/greenplum_oss_apt_install_order.txt`;do
     dpkg -i libverto1_0.2.4-2.1ubuntu3_amd64.deb 
     dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
     dpkg -r libverto1
+    continue
   fi
   dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
 done
