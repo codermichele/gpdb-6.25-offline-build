@@ -95,6 +95,7 @@
 95_libcurl4_7.58.0-2ubuntu3.24_amd64.deb
 96_curl_7.58.0-2ubuntu3.24_amd64.deb
 97_libtool_2.4.6-2_all.deb
+98-1_debhelper_11.1.6ubuntu2_all.deb
 98_dh-autoreconf_17_all.deb
 99_libarchive-zip-perl_1.60-1ubuntu0.1_all.deb
 100_libfile-stripnondeterminism-perl_0.040-1.1~build1_all.deb
@@ -104,7 +105,7 @@
 104_gettext_0.19.8.1-6ubuntu0.3_amd64.deb
 105_intltool-debian_0.35.0+20060710.4_all.deb
 106_po-debconf_1.0.20_all.deb
-107_debhelper_11.1.6ubuntu2_all.deb
+
 108_libassuan0_2.5.1-2_amd64.deb
 109_gpgconf_2.2.4-1ubuntu1.6_amd64.deb
 110_libksba8_1.3.5-2ubuntu0.18.04.2_amd64.deb
