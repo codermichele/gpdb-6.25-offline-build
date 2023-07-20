@@ -58,10 +58,10 @@ for deb in `cat ${sub_path}/greenplum_oss_apt_install_order.txt`;do
   if [ ${deb} == "libverto-libevent1_0.2.4-2.1ubuntu3_amd64.deb" ];then
     equivs-build libverto1.control
     dpkg -i libverto1_0.2.4-2.1ubuntu3_amd64.deb 
-    dpkg -i ${sub_path}/greenplum-oss-debs/deb
+    dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
     dpkg -r libverto1
   fi
-  dpkg -i ${sub_path}/greenplum-oss-debs/deb
+  dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
 done
 
 pip install conan
