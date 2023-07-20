@@ -167,7 +167,6 @@
 167_libkdb5-9_1.16-2ubuntu0.4_amd64.deb
 168_libkadm5srv-mit11_1.16-2ubuntu0.4_amd64.deb
 169_libevent-2.1-6_2.1.8-stable-4build1_amd64.deb
-170-1_libverto-glib1_0.2.4-2.1ubuntu3_amd64.deb
 170_libverto-libevent1_0.2.4-2.1ubuntu3_amd64.deb
 171_libverto1_0.2.4-2.1ubuntu3_amd64.deb
 172_krb5-config_2.6_all.deb

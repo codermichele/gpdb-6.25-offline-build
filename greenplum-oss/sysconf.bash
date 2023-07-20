@@ -40,10 +40,29 @@
 # net-tools \
 # ninja-build \
 # libpq-dev
+apt-get install equivs
 
 sub_path="/gpdb_src/greenplum-oss"
 for deb in `cat ${sub_path}/greenplum_oss_apt_install_order.txt`;do
-  dpkg -i ${sub_path}/greenplum-oss-debs/${deb#*_}
+  deb=${deb#*_}
+  if [ ${deb} == "libverto-libevent1_0.2.4-2.1ubuntu3_amd64.deb" ];then
+    cat > ${sub_path}/greenplum-oss-debs/libverto1.control <<EOF
+    Section: libs
+    Priority: optional
+    Standards-Version: 3.9.2
+    Package: libverto1
+    Version: 0.2.4-2.1ubuntu3_amd64
+    Archtecture: any
+    Description: Dummy package for libverto1
+    Depends: 
+    EOF
+    
+    equivs-build libverto1.control
+    dpkg -i libverto1_0.2.4-2.1ubuntu3_amd64.deb 
+    dpkg -i ${sub_path}/greenplum-oss-debs/deb
+    dpkg -r libverto1
+  fi
+  dpkg -i ${sub_path}/greenplum-oss-debs/deb
 done
 
 pip install conan
