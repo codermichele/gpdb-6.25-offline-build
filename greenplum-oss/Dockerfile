@@ -43,4 +43,5 @@ RUN find / -name readline \
 && find / -name config.log \
 && make -j8 \
 && make -j8 install \
-&& touch /usr/local/greenplum-db/lib/python/pygresql/__init.py__
+&& touch /usr/local/greenplum-db/lib/python/pygresql/__init__.py \
+&& sed -ri 's/(GSSAPIAuthentication) yes/#\1 yes/' /etc/ssh/ssh_config
