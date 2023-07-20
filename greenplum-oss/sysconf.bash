@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get update
+# apt-get update
 # apt-get install -y \
 # python-dev \
 # python-pip \
@@ -40,7 +40,7 @@ apt-get update
 # net-tools \
 # ninja-build \
 # libpq-dev
-apt-get -y install equivs
+#apt-get -y install equivs
 sub_path="/gpdb_src/greenplum-oss"
 tee -a > ${sub_path}/greenplum-oss-debs/libverto1.control <<EOF
     Section: libs
@@ -53,18 +53,25 @@ tee -a > ${sub_path}/greenplum-oss-debs/libverto1.control <<EOF
     Depends: 
 EOF
 
-#for deb in `cat ${sub_path}/greenplum_oss_apt_install_order.txt`;do
-#  deb=${deb#*_}
-#  if [ ${deb} == "libverto-libevent1_0.2.4-2.1ubuntu3_amd64.deb" ];then
-#    equivs-build libverto1.control
-#    dpkg -i libverto1_0.2.4-2.1ubuntu3_amd64.deb 
-#    dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
-#    dpkg -r libverto1
-#  fi
-#  dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
-#done
+#install equvis
+for deb in `cat ${sub_path}/equivs_apt_install_order.txt`;do
+  deb=${deb#*_}	
+  dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
+done
 
-#pip install conan
+#install required deb
+for deb in `cat ${sub_path}/greenplum_oss_apt_install_order.txt`;do
+  deb=${deb#*_}
+  if [ ${deb} == "libverto-libevent1_0.2.4-2.1ubuntu3_amd64.deb" ];then
+    equivs-build libverto1.control
+    dpkg -i libverto1_0.2.4-2.1ubuntu3_amd64.deb 
+    dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
+    dpkg -r libverto1
+  fi
+  dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
+done
+
+pip install conan
 
 tee -a /etc/sysctl.conf << EOF
 kernel.shmmax = 5000000000000
