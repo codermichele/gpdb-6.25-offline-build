@@ -3,52 +3,48 @@
 # apt-get update
 # apt-get install -y \
 # python-dev \
-#	python-pip \
-#	python-psutil \
-#	python-yaml \
+# python-pip \
+# python-psutil \
+# python-yaml \
 # openssl \
 # autoconf \
-#	zlib1g-dev \
+# zlib1g-dev \
 # ccache \
-#	cmake \
+# cmake \
 # curl \
-#	gcc \
+# gcc \
 # g++ \
-#	libssl-dev \
+# libssl-dev \
 # locales-all \
-#	inetutils-ping \
-#	cgroup-tools \
-#	bison \
-#	flex \
+# inetutils-ping \
+# cgroup-tools \
+# bison \
+# flex \
 # libreadline-dev \
-#	libzstd-dev \
+# libzstd-dev \
 # libkrb5-dev \
-#	python-gssapi \
+# python-gssapi \
 # libevent-dev \
 # libapr1-dev \
 # libtool \
 # libyaml-dev \
 # libperl-dev \
-#	libbz2-dev \
-#	libcurl4-gnutls-dev \
-#	libpam-dev \
+# libbz2-dev \
+# libcurl4-gnutls-dev \
+# libpam-dev \
 # wget \
-#	git-core \
-#	krb5-kdc \
-#	krb5-admin-server \
-#	locales \
-#	net-tools \
-#	ninja-build \
+# git-core \
+# krb5-kdc \
+# krb5-admin-server \
+# locales \
+# net-tools \
+# ninja-build \
 # libpq-dev
-  
-dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/multiarch-support_2.27-3ubuntu1.6_amd64.deb
-dpki -i /gpdb_src/greenplum-oss/greenplum-oss-debs/libperl5.26_5.26.1-6ubuntu0.7_amd64.deb
-dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/perl-modules-5.26_5.26.1-6ubuntu0.7_all.deb
-dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/libperl5.26_5.26.1-6ubuntu0.7_amd64.deb
-dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/libpython2.7-minimal_2.7.17-1_18.04ubuntu1.11_amd64.deb
-dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/python2.7-minimal_2.7.17-1_18.04ubuntu1.11_amd64.deb
-dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/python-minimal_2.7.15_rc1-1_amd64.deb
-dpkg -i /gpdb_src/greenplum-oss/greenplum-oss-debs/*.deb
+
+sub_path="/gpdb_src/greenplum-oss"
+for deb in `cat ${sub_path}/greenplum_oss_apt_install_order.txt`;do
+  dpkg -i ${sub_path}/greenplum-oss-debs/${deb#*_}
+done
 
 pip install conan
 
