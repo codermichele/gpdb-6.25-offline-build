@@ -56,7 +56,7 @@ EOF
 #install equvis
 for deb in `cat ${sub_path}/equivs_apt_install_order.txt`;do
   deb=${deb#*_}	
-  if [ ${deb} == "dh-autoreconf_17_all.deb" ];then
+  if [ ${deb} == "dh-autoreconf_17_all.deb" ] || [ ${deb} == "dh-strip-nondeterminism_0.040-1.1_build1_all.deb" ];then
     dpkg -i --ignore-depends=debhelper ${sub_path}/greenplum-oss-debs/${deb}
     continue
   fi
