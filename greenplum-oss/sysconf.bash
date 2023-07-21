@@ -40,6 +40,7 @@
 # net-tools \
 # ninja-build \
 # libpq-dev
+
 #apt-get -y install equivs
 sub_path="/gpdb_src/greenplum-oss"
 tee -a > ${sub_path}/libverto1.control <<EOF
@@ -72,13 +73,28 @@ for deb in `cat ${sub_path}/greenplum_oss_apt_install_order.txt`;do
     equivs-build ${sub_path}/libverto1.control
     dpkg -i /libverto1_0.2.4-2.1ubuntu3_all.deb 
     dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
-    dpkg -r libverto1
+    rm -rf /libverto1_0.2.4-2.1ubuntu3_all.deb
     continue
   fi
   dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
 done
 
-pip install conan
+#through pip install
+#build whl
+for tarball in `cat ${sub_path}/by_pip_install.txt`;do
+  tarball=${tarball#*_}	
+  tar -zxf ${sub_path}/${tarball}
+  path_name=${tarball%.tar.gz*}
+  python ${sub_path}/${path_name} bdist_wheel
+  cp ${sub_path}/${dir_name}/dist/${path_name}* ${sub_path/by_pip_install}
+done
+
+#install whl
+for whl in `cat ${sub_path}/whl_install_order.txt`;do
+  whl=${whl#*_}
+  pip install ${sub_path}/${whl}
+done
+
 
 tee -a /etc/sysctl.conf << EOF
 kernel.shmmax = 5000000000000
