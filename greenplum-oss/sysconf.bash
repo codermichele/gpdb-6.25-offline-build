@@ -42,7 +42,7 @@
 # libpq-dev
 #apt-get -y install equivs
 sub_path="/gpdb_src/greenplum-oss"
-tee -a > ${sub_path}/greenplum-oss-debs/libverto1.control <<EOF
+tee -a > ${sub_path}/libverto1.control <<EOF
     Section: libs
     Priority: optional
     Standards-Version: 3.9.2
@@ -67,8 +67,8 @@ done
 for deb in `cat ${sub_path}/greenplum_oss_apt_install_order.txt`;do
   deb=${deb#*_}
   if [ ${deb} == "libverto-libevent1_0.2.4-2.1ubuntu3_amd64.deb" ];then
-    equivs-build libverto1.control
-    dpkg -i libverto1_0.2.4-2.1ubuntu3_amd64.deb 
+    equivs-build ${sub_path}/libverto1.control
+    dpkg -i ${sub_path}/libverto1_0.2.4-2.1ubuntu3_amd64.deb 
     dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
     dpkg -r libverto1
     continue
