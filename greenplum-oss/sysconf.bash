@@ -87,7 +87,7 @@ for tarball in `cat ${sub_path}/whl_build_order.txt`;do
   path_name=${tarball%.tar.gz*}
   cd ${sub_path}/by_pip_install/${path_name}
   python setup.py bdist_wheel
-  cp ./dist/${path_name}* ${sub_path}/by_pip_install
+  cp ./dist/* ${sub_path}/by_pip_install
   cd -
 done
 
