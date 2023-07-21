@@ -81,7 +81,7 @@ done
 
 #through pip install
 #build whl
-for tarball in `cat ${sub_path}/by_pip_install.txt`;do
+for tarball in `cat ${sub_path}/whl_build_order.txt`;do
   tarball=${tarball#*_}	
   tar -zxf ${sub_path}/${tarball}
   path_name=${tarball%.tar.gz*}
