@@ -7,7 +7,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN echo "/usr/local/lib" > /etc/ld.so.conf.d/usr-local.conf \
 && ldconfig \
-&& apt search libxml2 \
 && chmod +x gpdb_src/greenplum-oss/sysconf.bash \
 && gpdb_src/greenplum-oss/sysconf.bash \
 && cd gpdb_src/openssh-7.9p1 \
@@ -36,10 +35,7 @@ RUN mkdir build \
 WORKDIR /gpdb_src
 
 # Configure build environment to install at /usr/local/gpdb
-RUN find / -name readline \
-&& ./configure --with-perl --with-python --with-libxml --with-gssapi --prefix=/usr/local/greenplum-db \
-&& echo abcabc \
-&& find / -name config.log \
+RUN ./configure --with-perl --with-python --with-libxml --with-gssapi --prefix=/usr/local/greenplum-db \
 && make -j8 \
 && make -j8 install \
 && touch /usr/local/greenplum-db/lib/python/pygresql/__init__.py \
