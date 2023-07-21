@@ -83,16 +83,16 @@ done
 #build whl
 for tarball in `cat ${sub_path}/whl_build_order.txt`;do
   tarball=${tarball#*_}	
-  tar -zxf ${sub_path}/${tarball}
+  tar -zxf ${sub_path}/by_pip_install/${tarball}
   path_name=${tarball%.tar.gz*}
-  python ${sub_path}/${path_name} bdist_wheel
-  cp ${sub_path}/${dir_name}/dist/${path_name}* ${sub_path/by_pip_install}
+  python ${sub_path}/by_pip_install/${path_name} bdist_wheel
+  cp ${sub_path}/by_pip_install/${dir_name}/dist/${path_name}* ${sub_path}/by_pip_install
 done
 
 #install whl
 for whl in `cat ${sub_path}/whl_install_order.txt`;do
   whl=${whl#*_}
-  pip install ${sub_path}/${whl}
+  pip install ${sub_path}/by_pip_install/${whl}
 done
 
 
