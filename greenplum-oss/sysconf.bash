@@ -70,7 +70,7 @@ for deb in `cat ${sub_path}/greenplum_oss_apt_install_order.txt`;do
   if [ ${deb} == "libverto-libevent1_0.2.4-2.1ubuntu3_amd64.deb" ];then
     # build empty ball of libverto1
     equivs-build ${sub_path}/libverto1.control
-    dpkg -i ${sub_path}/libverto1_0.2.4-2.1ubuntu3_all.deb 
+    dpkg -i /libverto1_0.2.4-2.1ubuntu3_all.deb 
     dpkg -i ${sub_path}/greenplum-oss-debs/${deb}
     dpkg -r libverto1
     continue
