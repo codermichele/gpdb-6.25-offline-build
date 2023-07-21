@@ -83,7 +83,7 @@ done
 #build whl
 for tarball in `cat ${sub_path}/whl_build_order.txt`;do
   tarball=${tarball#*_}	
-  tar -zxf ${sub_path}/by_pip_install/${tarball}
+  tar -zxf ${sub_path}/by_pip_install/${tarball} -C ${sub_path}/by_pip_install
   path_name=${tarball%.tar.gz*}
   cd ${sub_path}/by_pip_install/${path_name}
   python setup.py bdist_wheel
