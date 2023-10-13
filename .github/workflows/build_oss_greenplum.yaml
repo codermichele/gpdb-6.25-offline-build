@@ -31,4 +31,4 @@ jobs:
           file: greenplum-oss/Dockerfile
           build-args: |
             PLAID_BUILD_TAG=${{ steps.docker_tag.outputs.tag }}
-          tags: jike21/greenplum-oss:6.25
+          tags: jike21/greenplum-oss:6.25.0-20231013
