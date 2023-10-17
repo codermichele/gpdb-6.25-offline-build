@@ -32,6 +32,11 @@ RUN mkdir build \
 && make -j8 \
 && make -j8 install
 
+WORKDIR /gpdb_src/gporca-3.122.0
+RUN mkdir build \
+&& cmake -GNinja -H. -Bbuild \
+&& ninja install -C build
+
 WORKDIR /gpdb_src
 
 # Configure build environment to install at /usr/local/gpdb
