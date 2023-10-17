@@ -32,10 +32,11 @@ RUN mkdir build \
 && make -j8 \
 && make -j8 install
 
-WORKDIR /gpdb_src/gporca-3.122.0
-RUN mkdir build \
-&& cmake -GNinja -H. -Bbuild \
-&& ninja install -C build
+# The job running on runner GitHub Actions 1 has exceeded the maximum execution time of 30 minutes.
+#WORKDIR /gpdb_src/gporca-3.122.0
+#RUN mkdir build \
+#&& cmake -GNinja -H. -Bbuild \
+#&& ninja install -C build
 
 WORKDIR /gpdb_src
 
