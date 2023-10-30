@@ -1,0 +1,17 @@
+platform: linux
+
+image_resource:
+  type: registry-image
+
+inputs:
+- name: gpbackup
+- name: bin_gpdb
+- name: libyaml-0.1.7
+  optional: true
+- name: gpbackup_ddboost_plugin
+
+outputs:
+- name: ddboost_components
+
+run:
+  path: gpbackup/ci/scripts/build-ddboost.bash
